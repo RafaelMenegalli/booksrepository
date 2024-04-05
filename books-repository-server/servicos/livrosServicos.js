@@ -11,7 +11,15 @@ function GetLivrosPorId(id){
     return filterLivro
 }
 
+function inserirNovoLivro(livroNovo){
+    const livros = JSON.parse(fs.readFileSync("livros.json"))
+    const novaLIstaLivros = [ ...livros, livroNovo ]
+
+    fs.writeFileSync("livros.json", JSON.stringify(novaLIstaLivros))
+}
+
 module.exports = {
     getTodosLivros,
-    GetLivrosPorId
+    GetLivrosPorId,
+    inserirNovoLivro
 }

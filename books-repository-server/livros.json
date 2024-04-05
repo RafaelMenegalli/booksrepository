@@ -15,9 +15,16 @@
         "id": 4,
         "nome": "Quarto Livro"
     },
-
     {
         "id": 5,
         "nome": "Quinto Livro"
+    },
+    {
+        "id": 6,
+        "nome": "Sexto Livro"
+    },
+    {
+        "id": 7,
+        "nome": "Livro para teste!"
     }
 ]

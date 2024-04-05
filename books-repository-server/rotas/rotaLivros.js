@@ -1,14 +1,12 @@
 const { Router } = require("express")
 const router = Router()
-const { getLivros, GetLivro } = require("../controllers/livroController")
+const { getLivros, GetLivro, postLivro } = require("../controllers/livroController")
 
 router.get("/", getLivros)
 
 router.get("/:id", GetLivro)
 
-router.post("/", (req, res) => {
-    res.send("Você fez uma requisição do tipo POST")
-})
+router.post("/", postLivro)
 
 router.patch("/", (req, res) => {
     res.send("Você fez uma requisição do tipo PATCH")
