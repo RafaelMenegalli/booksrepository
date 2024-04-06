@@ -1,4 +1,4 @@
-const { getTodosLivros, GetLivrosPorId, inserirNovoLivro } = require("../servicos/livrosServicos");
+const { getTodosLivros, GetLivrosPorId, inserirNovoLivro, atualizaLivro, deleteLivrosPorId } = require("../servicos/livrosServicos");
 
 function getLivros (req, res) {
     try{
@@ -14,8 +14,16 @@ function getLivros (req, res) {
 function GetLivro(req, res){
     try{
         const IdLivro = req.params.id
-        const livroFiltrado = GetLivrosPorId(IdLivro)
-        res.send(livroFiltrado)
+
+        if(IdLivro && Number(IdLivro)){
+            const livroFiltrado = GetLivrosPorId(IdLivro)
+            res.send(livroFiltrado)
+
+        } else {
+            res.status(422)
+            res.send("Id para GetLivroPorId Inválido!")
+        }
+
     } catch(error){
         res.status(500)
         res.send(error)
@@ -34,8 +42,50 @@ function postLivro(req, res){
     }
 }
 
+function patchLivro(req, res){
+    try {
+        const id = parseInt(req.params.id)
+
+        if(id && Number(id)){
+            const modificacaoLivro = req.body
+    
+            atualizaLivro(id, modificacaoLivro)
+            // modificaLivro(modificacaoLivro, id)
+            res.send("Registro Atualizado com sucesso")
+
+        } else {
+            res.status(422)
+            res.send("Id inválido para patchLivro")
+        }
+
+    } catch(error){
+        res.status(500)
+        res.send(error.message)
+    }
+}
+
+function deleteLivro(req, res){
+    try{
+        const id = parseInt(req.params.id)
+
+        if(id && Number(id)){
+            deleteLivrosPorId(id)
+    
+            res.send("Livro excluido com sucesso!")
+
+        } else {
+            res.status(422)
+            res.send("Id inválido para deleteLivro")
+        }
+    } catch(error){
+        res.status(500)
+        res.send(error.message)
+    }
+}
 module.exports = {
     getLivros,
     GetLivro,
-    postLivro
+    postLivro,
+    patchLivro,
+    deleteLivro
 }
