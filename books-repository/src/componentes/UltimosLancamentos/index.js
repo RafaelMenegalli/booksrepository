@@ -20,7 +20,7 @@ const LivrosLacamentosContainer = styled.div`
     align-items: center;
     gap: 50px;
     padding-top: 40px;
-    padding-bottom: 18px;
+    padding-bottom: 40px;
 `
 
 const Livros = styled.div`
@@ -52,17 +52,19 @@ function UltimosLancamentos() {
                 }
             </LivrosLacamentosContainer>
 
+            <TituloUltimoLancamentos cor="#003468" tamanhoFonte="3em">Livros Recomendados</TituloUltimoLancamentos>
+
             <CardRecomendados
-                titulo="Rafael é Lindo"
-                subtitulo="Rafael é Lindo Subtitulo"
-                descricao="Rafael é Lindo Descricao"
+                titulo="Recomendamos"
+                subtitulo="Livro Muito Legal"
+                descricao="Esse é a descrição do livro legal"
                 imagem={imagemLivro}
             />
 
             <CardRecomendados
-                titulo="Jessica é Linda"
-                subtitulo="Jessica é Linda Subtitulo"
-                descricao="Jessica é Lindaaaaaaaaaaaaaaa Descricao"
+                titulo="Recomoda-se"
+                subtitulo="Livrão Iradão"
+                descricao="Descrição do livrão iradão"
                 imagem={imagemLivro}
             />
 
