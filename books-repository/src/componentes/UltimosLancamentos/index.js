@@ -10,6 +10,7 @@ const UltimosLancamentosContainer = styled.section`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: white;
     `
 
 const LivrosLacamentosContainer = styled.div`
@@ -18,17 +19,26 @@ const LivrosLacamentosContainer = styled.div`
     justify-content: center;
     align-items: center;
     gap: 50px;
+    padding-top: 40px;
+    padding-bottom: 18px;
 `
 
 const Livros = styled.div`
     display: flex;
     flex-direction: column;
+    font-weight: bold;
+    color: white;
+    background-color: #003468;
+    text-align: center;
+    padding: 7px;
+    border-radius: 5px;
+    box-shadow: 7px 9px 4px 0px rgba(0,0,0,0.39);
 `
 
 function UltimosLancamentos() {
     return (
         <UltimosLancamentosContainer>
-            <TituloUltimoLancamentos cor="#FD8325" tamanhoFonte="3em">Ultimos Lançamentos</TituloUltimoLancamentos>
+            <TituloUltimoLancamentos cor="#003468" tamanhoFonte="3em">Ultimos Lançamentos</TituloUltimoLancamentos>
             <LivrosLacamentosContainer>
                 {
                     LivrosUltimosLancamentos.map(livro => (

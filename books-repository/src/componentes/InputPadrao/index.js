@@ -14,6 +14,10 @@ const InputPadrao = styled.input`
         color: white;
         font-size: 16px;
     }
+
+    &:focus{
+        outline: none;
+    }
 `
 
 export default InputPadrao

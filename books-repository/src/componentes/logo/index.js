@@ -3,16 +3,32 @@ import styled from 'styled-components'
 
 const LogoContainer = styled.div`
   display: flex; 
-  font-size: 25px;`
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+`
+
+const ParagrafoEscritaLogo = styled.p`
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+`
+
 
 function Logo() {
     return (
         <LogoContainer>
+          <div>
           <img 
             src={logo} 
             alt = "logo"
           ></img>
-          <p><strong>BooksRepository</strong></p>
+
+          </div>
+          <div>
+            <ParagrafoEscritaLogo><strong>Books</strong></ParagrafoEscritaLogo>
+            <ParagrafoEscritaLogo><strong>Repository</strong></ParagrafoEscritaLogo>
+          </div>
         </LogoContainer>
     )
 }

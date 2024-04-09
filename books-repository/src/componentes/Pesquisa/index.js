@@ -5,7 +5,9 @@ import { repositoriosLivros } from './livrosPesquisa.js'
 
 const PesquisaContainer = styled.section`
     width: 100vw;
-    height: 350px;
+    height: 600px;
+    padding-top: 30px;
+    padding-bottom: 30px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -43,6 +45,7 @@ const Livro = styled.div`
 function Pesquisa() {
 
     const [livroEscolhido, setLivroEscolhido] = useState([])
+    console.log("Valor do Livro escolhido", livroEscolhido)
 
     return (
         <PesquisaContainer>
