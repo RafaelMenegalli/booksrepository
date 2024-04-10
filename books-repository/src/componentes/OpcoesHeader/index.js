@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 const MenuNavegacao = styled.ul`
 display: flex;`
@@ -15,14 +16,14 @@ const ItensNavegacao = styled.li`
     font-size: 16px;
     min-width: 120px;`
 
-const listaItensNavegacao = ['Categorias', 'Minha Estante', 'Favoritos']
+const listaItensNavegacao = ['Categorias', 'Estante', 'Favoritos']
 
 function MenuNavegacaoFuncao() {
     return (
         <MenuNavegacao>
             {
                 listaItensNavegacao.map((itemNavegacao) => (
-                    <ItensNavegacao><p>{itemNavegacao}</p></ItensNavegacao>
+                    <Link to={`/${itemNavegacao.toLowerCase()}`}> <ItensNavegacao><p>{itemNavegacao}</p></ItensNavegacao> </Link>
                 ))
             }
         </MenuNavegacao>
