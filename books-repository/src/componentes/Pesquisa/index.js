@@ -1,7 +1,7 @@
 import InputPadrao from "../InputPadrao"
 import styled from "styled-components"
-import { useState } from "react"
-import { repositoriosLivros } from './livrosPesquisa.js'
+import { useEffect, useState } from "react"
+import { getLivros } from "../../servicos/livros"
 
 const PesquisaContainer = styled.section`
     width: 100vw;
@@ -45,7 +45,13 @@ const Livro = styled.div`
 function Pesquisa() {
 
     const [livroEscolhido, setLivroEscolhido] = useState([])
-    console.log("Valor do Livro escolhido", livroEscolhido)
+    const [repositoriosLivros, setRepositoriosLivros] = useState([])
+
+    useEffect(() => {
+        const livrosDaAPI = getLivros()
+
+        setRepositoriosLivros(livrosDaAPI)
+    }, [])
 
     return (
         <PesquisaContainer>
@@ -57,8 +63,6 @@ function Pesquisa() {
                 onBlur={evento => {
                     const textoDigitado = evento.target.value
                     const livros = repositoriosLivros.filter(itemLista => itemLista.titulo.includes(textoDigitado));
-
-                    console.log(livros)
 
                     if(livros.length >= 6){
                         setLivroEscolhido([])
