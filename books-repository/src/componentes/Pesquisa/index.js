@@ -48,10 +48,13 @@ function Pesquisa() {
     const [repositoriosLivros, setRepositoriosLivros] = useState([])
 
     useEffect(() => {
-        const livrosDaAPI = getLivros()
+        fetchLivros()
+    }, []);
 
-        setRepositoriosLivros(livrosDaAPI)
-    }, [])
+    async function fetchLivros(){
+        const livrosAPI = await getLivros()
+        setRepositoriosLivros(livrosAPI)
+    }
 
     return (
         <PesquisaContainer>
@@ -62,9 +65,9 @@ function Pesquisa() {
                 placeholder="Escreva sua próxima leitura"
                 onBlur={evento => {
                     const textoDigitado = evento.target.value
-                    const livros = repositoriosLivros.filter(itemLista => itemLista.titulo.includes(textoDigitado));
+                    const livros = repositoriosLivros.filter(itemLista => itemLista.nome.includes(textoDigitado));
 
-                    if(livros.length >= 6){
+                    if (livros.length >= 6) {
                         setLivroEscolhido([])
                     } else {
                         setLivroEscolhido(livros)
@@ -75,7 +78,7 @@ function Pesquisa() {
             <LivrosContainer>
                 {livroEscolhido.map(livro => (
                     <Livro>
-                        <p>{livro.titulo}</p>
+                        <p>{livro.nome}</p>
                         <img
                             src={livro.capa}
                         />

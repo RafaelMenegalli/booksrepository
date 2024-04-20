@@ -1,1 +1,22 @@
-[{"id":3,"nome":"Terceiro Livro"},{"id":6,"nome":"Sexto Livro"},{"id":7,"nome":"Livro para teste!"},{"id":8,"nome":"Livro oito muito DAHORA"},{"id":9,"nome":"Livro nove muito FODA"}]
+[
+    {
+        "id": 3,
+        "nome": "Terceiro Livro"
+    },
+    {
+        "id": 6,
+        "nome": "Sexto Livro"
+    },
+    {
+        "id": 7,
+        "nome": "Livro para teste!"
+    },
+    {
+        "id": 8,
+        "nome": "Livro oito muito DAHORA"
+    },
+    {
+        "id": 9,
+        "nome": "Livro nove muito FODA"
+    }
+]
