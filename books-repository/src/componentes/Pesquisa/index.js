@@ -2,6 +2,7 @@ import InputPadrao from "../InputPadrao"
 import styled from "styled-components"
 import { useEffect, useState } from "react"
 import { getLivros } from "../../servicos/livros"
+import { postFavoritos } from "../../servicos/favoritos"
 
 const PesquisaContainer = styled.section`
     width: 100vw;
@@ -56,6 +57,11 @@ function Pesquisa() {
         setRepositoriosLivros(livrosAPI)
     }
 
+    async function insereFavorito(id){
+        await postFavoritos(id)
+        alert("Livro de ID: " + id + " adicionado aos favoritos!")
+    }
+
     return (
         <PesquisaContainer>
             <Titulo>Já sabe por onde começar?</Titulo>
@@ -77,7 +83,7 @@ function Pesquisa() {
 
             <LivrosContainer>
                 {livroEscolhido.map(livro => (
-                    <Livro>
+                    <Livro onClick={() => insereFavorito(livro.id)}>
                         <p>{livro.nome}</p>
                         <img
                             src={livro.capa}
