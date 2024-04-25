@@ -1,15 +1,30 @@
-import Header from '../componentes/Header';
-import Pesquisa from '../componentes/Pesquisa';
-import UltimosLancamentos from '../componentes/UltimosLancamentos';
 import styled from 'styled-components';
+import { useEffect, useState } from 'react';
+import {getFavoritos} from "../servicos/favoritos"
 
 const AppContainer = styled.div`
+    width: 100vw;
+    height: 100vh;
     background: linear-gradient(90deg, #003366, #3399ff);
 `
+
 function Favoritos(){
+    const [favoritos, setFavoritos] = useState([])
+
+    async function fetchFavoritos(){
+        const favoritosAPI = await getFavoritos()
+        setFavoritos(favoritosAPI)
+    }
+
+    useEffect(() => {
+        fetchFavoritos()
+    })
+
     return(
         <AppContainer>
-            <Pesquisa />
+           {favoritos.map( favorito => (
+            <p>{favorito.nome}</p>
+           ) )}
         </AppContainer>
     )
 }
